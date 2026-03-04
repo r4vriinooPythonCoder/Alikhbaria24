@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>الإخبارية24 - تازة</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html" aria-label="الإخبارية24">
+        <span class="brand-mark">24</span>
+        <span class="brand-text">الإخبارية</span>
+        <span class="muted small" style="margin-inline-start:6px;">تازة</span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل">
+        <a href="#top" data-scroll class="nav-link">الرئيسية</a>
+        <a href="#news" data-scroll class="nav-link">الأخبار</a>
+        <a href="#contact" data-scroll class="nav-link">اتصل بنا</a>
+      </nav>
+
+      <div class="header-right">
+        <span class="pill">الساعة بتازة: <b id="tazaClock">--:--</b></span>
+        <button id="themeBtn" class="btn" type="button" title="الوضع الليلي">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="slider reveal" id="sliderWrap" aria-label="سلايدر"></section>
+
+    <section class="ticker reveal" aria-label="أخبار عاجلة">
+      <div class="ticker-head">
+        <span class="ticker-badge">عاجل</span>
+        <span class="muted small">آخر العناوين</span>
+      </div>
+      <div class="ticker-track">
+        <div class="ticker-move" id="tickerMove"> </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="news">
+      <div class="section-head">
+        <h2>آخر الأخبار</h2>
+        <div class="muted small" id="newsMeta"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="section reveal" id="contact">
+      <div class="section-head"><h2>اتصل بنا</h2></div>
+
+      <div class="contact">
+        <div>
+          <div class="muted small">واتساب</div>
+          <div><b>+212 661498102</b></div>
+        </div>
+
+        <div>
+          <div class="muted small">البريد الإلكتروني</div>
+          <div><b>Jamalbella19@gmail.com</b></div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="https://wa.me/212661498102" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:Jamalbella19@gmail.com">Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="muted">© <span id="year"></span> الإخبارية24 - تازة</div>
+      <button id="toTop" class="btn" type="button" title="فوق">⬆️</button>
+    </div>
+  </footer>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/supabaseClient.js"></script>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

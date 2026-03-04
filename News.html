@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>لوحة التحكم | الإخبارية24 - تازة</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./index.html" aria-label="الإخبارية24">
+      <span class="brand-mark">24</span>
+      <span class="brand-text">الإخبارية</span>
+      <span class="muted small" style="margin-inline-start:6px;">تازة</span>
+    </a>
+
+    <div class="header-right">
+      <span class="pill" id="helloPill" style="display:none;">
+        مرحبا <b id="helloName">جمال</b> 👋
+        <span class="muted small" id="helloEmail" style="margin-inline-start:8px;"></span>
+      </span>
+      <button id="logoutBtn" class="btn" type="button" style="display:none;">تسجيل الخروج</button>
+    </div>
+  </div>
+</header>
+
+<main class="container main">
+
+  <!-- LOGIN -->
+  <section class="admin-box" id="loginBox">
+    <h1 class="admin-title">تسجيل الدخول</h1>
+    <p class="muted admin-sub">دخول الإدارة فقط</p>
+
+    <div class="admin-form">
+      <label class="admin-label">البريد الإلكتروني</label>
+      <input id="email" class="admin-input" placeholder="Email" autocomplete="username" style="direction:ltr;text-align:left"/>
+
+      <label class="admin-label">كلمة المرور</label>
+      <input id="password" class="admin-input" type="password" placeholder="Password" autocomplete="current-password" style="direction:ltr;text-align:left"/>
+
+      <button id="loginBtn" class="admin-primary" type="button">دخول</button>
+      <div class="admin-msg" id="authMsg"></div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" style="display:none;">
+    <div class="admin-tabs">
+      <button class="admin-tab is-active" data-tab="posts">الأخبار</button>
+      <button class="admin-tab" data-tab="slider">السلايدر</button>
+      <button class="admin-tab" data-tab="security">الحالة</button>
+    </div>
+
+    <!-- POSTS -->
+    <div class="admin-panel" id="tab-posts">
+      <div class="admin-card">
+        <div class="admin-head">
+          <h2 class="admin-h2">نشر خبر</h2>
+          <button id="refreshPostsBtn" class="admin-btn" type="button">تحديث</button>
+        </div>
+
+        <label class="admin-check">
+  <input type="checkbox" id="pFeatured">
+  خبر عاجل (Breaking)
+</label>
+
+        <div class="admin-grid">
+          <div class="admin-col">
+            <label class="admin-label">العنوان</label>
+            <input id="pTitle" class="admin-input"/>
+
+            <label class="admin-label">الوصف القصير</label>
+            <input id="pExcerpt" class="admin-input"/>
+
+            <label class="admin-label">المحتوى</label>
+            <textarea id="pContent" class="admin-input" rows="10"></textarea>
+
+            <div class="admin-row">
+              <div style="flex:1;">
+                <label class="admin-label">التصنيف</label>
+                <select id="pCategory" class="admin-input">
+                  <option value="local">محليات تازة</option>
+                  <option value="incidents">حوادث</option>
+                  <option value="sports">رياضة</option>
+                  <option value="society">مجتمع</option>
+                </select>
+              </div>
+              <div style="flex:1;">
+                <label class="admin-label">الكاتب</label>
+                <input id="pAuthor" class="admin-input" value="هيئة التحرير"/>
+              </div>
+            </div>
+
+            <label class="admin-label">وسوم (اختياري)</label>
+            <input id="pTags" class="admin-input" placeholder="تازة, محليات ..."/>
+          </div>
+
+          <div class="admin-col">
+            <div class="admin-upload">
+              <label class="admin-label">الصورة الرئيسية</label>
+              <input id="pMainImg" class="admin-file" type="file" accept="image/*"/>
+            </div>
+
+            <div class="admin-upload">
+              <label class="admin-label">صور إضافية (حتى 3)</label>
+              <input id="pGallery" class="admin-file" type="file" accept="image/*" multiple/>
+            </div>
+
+            <button id="publishBtn" class="admin-primary" type="button">نشر الخبر</button>
+            <div class="admin-msg" id="postMsg"></div>
+
+            <div class="admin-tip"><b>المعاينة:</b></div>
+            <div class="card" id="previewCard" style="margin-top:10px;">
+              <div class="card-media" id="previewImg" style="background-image:linear-gradient(135deg,var(--brand),var(--brand2));"></div>
+              <div class="card-body">
+                <div class="card-top">
+                  <span class="badge" id="previewCat">محليات تازة</span>
+                  <span class="muted small" id="previewDate">—</span>
+                </div>
+                <h3 class="card-title" id="previewTitle">عنوان الخبر</h3>
+                <p class="card-excerpt" id="previewExcerpt">الوصف القصير</p>
+                <div class="card-bottom">
+                  <span class="muted small" id="previewAuthor">بقلم: هيئة التحرير</span>
+                  <span class="muted small">اقرأ المزيد ←</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card" style="margin-top:14px;">
+        <h2 class="admin-h2">الأخبار المنشورة</h2>
+        <div class="admin-list" id="postsList"></div>
+      </div>
+    </div>
+
+    <!-- SLIDER -->
+    <div class="admin-panel" id="tab-slider" style="display:none;">
+      <div class="admin-card">
+        <div class="admin-head">
+          <h2 class="admin-h2">رفع للسلايدر (حد أقصى 20)</h2>
+          <button id="refreshSlidesBtn" class="admin-btn" type="button">تحديث</button>
+        </div>
+
+        <div class="admin-grid">
+          <div class="admin-col">
+            <label class="admin-label">عنوان (اختياري)</label>
+            <input id="slideTitle" class="admin-input"/>
+
+            <label class="admin-label">صورة السلايدر</label>
+            <input id="slideFile" class="admin-file" type="file" accept="image/*"/>
+
+            <button id="addSlideBtn" class="admin-primary" type="button">رفع</button>
+            <div class="admin-msg" id="slideMsg"></div>
+          </div>
+
+          <div class="admin-col">
+            <div class="admin-tip">
+              <b>نصيحة:</b> صور JPG خفيفة باش يكون الموقع سريع.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card" style="margin-top:14px;">
+        <h2 class="admin-h2">صور السلايدر</h2>
+        <div class="admin-list" id="slidesList"></div>
+      </div>
+    </div>
+
+<!-- SECURITY / STATUS -->
+<div class="admin-panel" id="tab-security" style="display:none;">
+  <div class="admin-card">
+    <h2 class="admin-h2">حالة الحساب</h2>
+    <div class="admin-tip" id="whoamiBox">…</div>
+    <div class="muted small">يعرض UID + Role + Email للحساب الحالي.</div>
+  </div>
+</div>
+
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/supabaseClient.js"></script>
+<script src="assets/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>خبر | الإخبارية24 - تازة</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html" aria-label="الإخبارية24">
+        <span class="brand-mark">24</span>
+        <span class="brand-text">الإخبارية</span>
+        <span class="muted small" style="margin-inline-start:6px;">تازة</span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل">
+        <a href="./index.html#top" class="nav-link">الرئيسية</a>
+        <a href="./index.html#news" class="nav-link">الأخبار</a>
+        <a href="./index.html#contact" class="nav-link">اتصل بنا</a>
+      </nav>
+
+      <div class="header-right">
+        <span class="pill">الساعة بتازة: <b id="tazaClock">--:--</b></span>
+        <button id="themeBtn" class="btn" type="button" title="الوضع الليلي">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main">
+    <article class="post-wrap reveal" id="postRoot"></article>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <h2>أخبار ذات صلة</h2>
+        <div class="muted small">حسب نفس التصنيف</div>
+      </div>
+      <div class="grid" id="relatedGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="muted">© <span id="year"></span> الإخبارية24 - تازة</div>
+      <button id="toTop" class="btn" type="button" title="فوق">⬆️</button>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="إغلاق">✕</button>
+    <img id="lightboxImg" alt="صورة" />
+  </div>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/supabaseClient.js"></script>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
